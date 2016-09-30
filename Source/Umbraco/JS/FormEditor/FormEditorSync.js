@@ -158,10 +158,12 @@
 
       // all rules must be fulfilled for a validation to fail
       if (ruleIsFulfilled == false) {
-        // no need to continue the loop
-        isValid = true;
-        return false;
+          isValid = true;
       }
+      // Mark fields as invalid
+      $.fn.formEditor.showHideValidationErrorForField(group, !ruleIsFulfilled);
+      return ruleIsFulfilled;
+      
     });
     return isValid;
   }
